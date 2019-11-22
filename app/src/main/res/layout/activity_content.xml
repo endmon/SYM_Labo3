@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnHighSecurity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lowSecurity" />
+
+    <Button
+        android:id="@+id/btnMediumSecurity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mediumSecurity" />
+
+    <Button
+        android:id="@+id/btnLowSecurity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/highSecurity" />
+
+</LinearLayout>

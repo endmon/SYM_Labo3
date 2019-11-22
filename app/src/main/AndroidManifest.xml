@@ -23,13 +23,18 @@
         </activity>
 
         <activity
-            android:name="ch.heigvd.scan.NFC"
-            android:label="@string/nfc">
+            android:name="ch.heigvd.scan.NFCActivity"
+            android:label="@string/nfcActivity">
         </activity>
 
         <activity
-            android:name="ch.heigvd.scan.QRCode"
-            android:label="@string/qrcode">
+            android:name="ch.heigvd.scan.QRCodeActivity"
+            android:label="@string/qrcodeActivity">
+        </activity>
+
+        <activity
+            android:name="ch.heigvd.scan.ContentActivity"
+            android:label="@string/contentActivity">
         </activity>
 
 

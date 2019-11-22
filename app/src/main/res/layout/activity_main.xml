@@ -8,12 +8,12 @@
         android:id="@+id/btnNFC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nfc" />
+        android:text="@string/nfcActivity" />
 
     <Button
         android:id="@+id/btnQRCODE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/qrcode" />
+        android:text="@string/qrcodeActivity" />
 
 </LinearLayout>

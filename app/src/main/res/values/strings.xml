@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">scan</string>
-    <string name="nfc">NFC</string>
-    <string name="qrcode">QRCode</string>
+    <string name="app_name">SYM - Labo3</string>
+    <string name="nfcActivity">NFC</string>
+    <string name="qrcodeActivity">QRCode</string>
+    <string name="contentActivity">Contenu sécurisé</string>
+    <string name="connect">Connect</string>
+    <string name="username">nom d\'utilisateur</string>
+    <string name="password">Mot de passe</string>
+    <string name="highSecurity">sécurité élevé</string>
+    <string name="mediumSecurity">sécurité moyenne</string>
+    <string name="lowSecurity">sécurité basse</string>
 </resources>

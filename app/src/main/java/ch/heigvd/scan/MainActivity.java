@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         nfc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NFC.class);
+                Intent intent = new Intent(MainActivity.this, NFCActivity.class);
                 MainActivity.this.startActivity(intent);
 
             }
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         qrcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, QRCode.class);
+                Intent intent = new Intent(MainActivity.this, QRCodeActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });

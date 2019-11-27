@@ -7,7 +7,7 @@
         android:id="@+id/btnHighSecurity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/lowSecurity" />
+        android:text="@string/highSecurity" />
 
     <Button
         android:id="@+id/btnMediumSecurity"
@@ -19,6 +19,6 @@
         android:id="@+id/btnLowSecurity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/highSecurity" />
+        android:text="@string/lowSecurity" />
 
 </LinearLayout>

@@ -9,8 +9,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button nfc     = null;
-    private Button qrcode  = null;
+    private Button nfc;
+    private Button qrcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

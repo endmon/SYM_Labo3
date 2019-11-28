@@ -40,6 +40,7 @@ public class NFCReader {
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
                 if(tag.toString().equals("TAG: Tech [android.nfc.tech.NfcA, android.nfc.tech.Ndef]")){
                     ContentActivity.setAuthenticateLevel(ContentActivity.AUTHENTICATE_MAX);
+                    Toast.makeText(activity, "le niveau de sécurité a été réhaussé au max" + type, Toast.LENGTH_LONG).show();
                 }
             } else {
                 Toast.makeText(activity, "Wrong mime type: " + type, Toast.LENGTH_LONG).show();

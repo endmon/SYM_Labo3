@@ -54,7 +54,7 @@ public class NFCReader {
             return;
 
         final Intent intent = new Intent(activity.getApplicationContext(),
-                this.getClass());
+                activity.getClass());
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         final PendingIntent pendingIntent =

@@ -49,6 +49,8 @@ public class NFCActivity extends AppCompatActivity {
                 ){
                     Intent intent = new Intent( NFCActivity.this, ContentActivity.class);
                     NFCActivity.this.startActivity(intent);
+                } else {
+                    Toast.makeText(NFCActivity.this, "mot de passe ou identifiant erroné ou niveau de sécurité insuffisant" , Toast.LENGTH_LONG).show();
                 }
             }
         });

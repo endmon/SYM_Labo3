@@ -1,17 +1,21 @@
+/*
+ * File         : NFCActivity.java
+ * Project      : Labo3 SYM
+ * Author       : Bouyiatiotis Stéphane - Da Costa Gomez - Lopes Gouveia Miguel Angelo
+ * Modifié le   : 29.11.2019
+ * Description  : Contient la classe contrôlant l'activité de connexion au contenu sécurisé.
+ *                L'activité hérite de NFCReader et  contient un champs texte, un champs mot de passe et un bouton.
+ *
+ */
+
 package ch.heigvd.scan;
 
-import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.nfc.NfcAdapter;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class NFCActivity extends NFCReader {
 

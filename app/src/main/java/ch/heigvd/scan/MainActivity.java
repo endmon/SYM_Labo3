@@ -1,3 +1,12 @@
+/*
+ * File         : MainActivity.java
+ * Project      : Labo3 SYM
+ * Author       : Bouyiatiotis Stéphane - Da Costa Gomez - Lopes Gouveia Miguel Angelo
+ * Modifié le   : 29.11.2019
+ * Description  : Contient la classe contrôlant l'activité principale qui contient 2 boutons)
+ *
+ */
+
 package ch.heigvd.scan;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,9 +46,5 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(intent);
             }
         });
-
-
-
-
     }
 }

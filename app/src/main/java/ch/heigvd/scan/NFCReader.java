@@ -1,13 +1,20 @@
+/*
+ * File         : NFCReader.java
+ * Project      : Labo3 SYM
+ * Author       : Bouyiatiotis Stéphane - Da Costa Gomez - Lopes Gouveia Miguel Angelo
+ * Modifié le   : 29.11.2019
+ * Description  : contient la classe abstraite gérant la fonctionnalité de lecture NFC
+ *
+ */
+
 package ch.heigvd.scan;
 
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;

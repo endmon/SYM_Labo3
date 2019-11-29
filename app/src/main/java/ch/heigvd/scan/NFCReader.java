@@ -6,60 +6,64 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.widget.Toast;
 
-public class NFCReader {
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+abstract public class NFCReader extends AppCompatActivity {
     private NfcAdapter nfcAdapter;
-    private Activity activity;
 
-    public NFCReader(Activity activity) {
-        this.nfcAdapter = NfcAdapter.getDefaultAdapter(activity);
-        this.activity = activity;
-    }
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
 
-    public boolean checkNFC(){
+        this.nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if(nfcAdapter == null){
             // Stop here, we definitely need NFC
-            Toast.makeText(activity, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
-            return false;
+            Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
+            finish();
+            return;
         }
 
         if(!nfcAdapter.isEnabled()) {
-            Toast.makeText(activity, "NFC is disabled.", Toast.LENGTH_LONG).show();
-            return false;
+            Toast.makeText(this, "NFC is disabled.", Toast.LENGTH_LONG).show();
         }
-
-        return true;
     }
 
-    public void onActivityNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
 
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
             String type = intent.getType();
             if ("text/plain".equals(type)) {
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
                 if(tag.toString().equals("TAG: Tech [android.nfc.tech.NfcA, android.nfc.tech.Ndef]")){
-                    ContentActivity.setAuthenticateLevel(ContentActivity.AUTHENTICATE_MAX);
-                    Toast.makeText(activity, "le niveau de sécurité a été réhaussé au max" + type, Toast.LENGTH_LONG).show();
+                    ContentActivity.setLastSeen();
+                    Toast.makeText(this, "le niveau de sécurité a été mis à jour", Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(activity, "Wrong mime type: " + type, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Wrong mime type: " + type, Toast.LENGTH_LONG).show();
 
             }
         }
 
     }
 
-    public void onActivityResume(){
+    protected void onResume(){
+        super.onResume();
+
         if(nfcAdapter == null)
             return;
 
-        final Intent intent = new Intent(activity.getApplicationContext(),
-                activity.getClass());
+        final Intent intent = new Intent(this.getApplicationContext(),
+                this.getClass());
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
         final PendingIntent pendingIntent =
-                PendingIntent.getActivity(activity.getApplicationContext(), 0, intent, 0);
+                PendingIntent.getActivity(this.getApplicationContext(), 0, intent, 0);
 
         IntentFilter[] filters = new IntentFilter[1];
         String[][] techList = new String[][]{};
@@ -71,15 +75,17 @@ public class NFCReader {
         try {
             filters[0].addDataType("text/plain");
         } catch (IntentFilter.MalformedMimeTypeException e) {
-            Toast.makeText(activity, "MalformedMimeTypeException", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "MalformedMimeTypeException", Toast.LENGTH_LONG).show();
         }
 
-        nfcAdapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
+        nfcAdapter.enableForegroundDispatch(this, pendingIntent, filters, techList);
     }
 
-    public void onActivityPause() {
+    protected void onPause() {
+        super.onPause();
+
         if(nfcAdapter != null)
-            nfcAdapter.disableForegroundDispatch(activity);
+            nfcAdapter.disableForegroundDispatch(this);
     }
 
 }
